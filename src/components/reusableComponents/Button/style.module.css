@@ -1,0 +1,157 @@
+.button {
+  min-width: clamp(140px, 15vw, 173px);
+  min-height: clamp(44px, 6vh, 75px);
+  padding: clamp(12px, 1.5vw, 14px) clamp(24px, 3vw, 32px);
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: clamp(40px, 8vw, 91px);
+  background: transparent;
+  font-family:
+    'Clash Grotesk',
+    -apple-system,
+    BlinkMacSystemFont,
+    sans-serif;
+  font-size: clamp(14px, 1.5vw, 16px);
+  font-weight: 500;
+  color: rgba(255, 255, 255, 1);
+  text-align: center;
+  line-height: 1.2;
+  white-space: nowrap;
+  cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  will-change: transform;
+  transform: translateZ(0);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1;
+  overflow: hidden;
+}
+
+.button__text {
+  display: inline-block;
+  position: relative;
+  z-index: 2;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.button--bordered::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 2px;
+  background: linear-gradient(
+    106.2deg,
+    #963488 -12.33%,
+    #fc6f32 50.28%,
+    #ff4a59 114.17%
+  );
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  z-index: -1;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .button--bordered:hover {
+    background: linear-gradient(
+      106.2deg,
+      #963488 -12.33%,
+      #fc6f32 50.28%,
+      #ff4a59 114.17%
+    );
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(150, 52, 136, 0.3);
+  }
+
+  .button:not(.button--bordered):hover .button__text {
+    background: linear-gradient(
+      106.2deg,
+      #963488 -12.33%,
+      #fc6f32 50.28%,
+      #ff4a59 114.17%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .button:hover {
+    transform: translateY(-2px);
+  }
+}
+
+.button:active {
+  transform: translateY(0) scale(0.98);
+  transition-duration: 0.1s;
+}
+
+.button--bordered:active {
+  box-shadow: 0 4px 12px rgba(150, 52, 136, 0.2);
+}
+
+.button:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.5);
+  outline-offset: 4px;
+}
+
+.button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+@media (max-width: 1024px) {
+  .button {
+    min-width: clamp(130px, 14vw, 160px);
+    min-height: clamp(44px, 5.5vh, 65px);
+    font-size: clamp(13px, 1.4vw, 15px);
+  }
+}
+
+@media (max-width: 768px) {
+  .button {
+    min-width: clamp(120px, 30vw, 150px);
+    min-height: 48px;
+    padding: 12px 24px;
+    font-size: 14px;
+    border-radius: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .button {
+    min-width: 110px;
+    min-height: 44px;
+    padding: 10px 20px;
+    font-size: 13px;
+  }
+}
+
+@media (min-width: 1920px) {
+  .button {
+    min-width: 173px;
+    min-height: 75px;
+    padding: 14px 32px;
+    font-size: 16px;
+    border-radius: 91px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .button,
+  .button__text,
+  .button--bordered::before {
+    transition: none;
+  }
+}

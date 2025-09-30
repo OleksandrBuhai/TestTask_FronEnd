@@ -1,0 +1,24 @@
+.parentSlide {
+  width: 100%;
+  max-width: clamp(800px, 90vw, 1200px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  position: relative;
+}
+
+@media (max-width: 768px) {
+  .parentSlide {
+    max-width: 100vw;
+    padding: 0 16px;
+    align-items: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .parentSlide {
+    max-width: 100vw;
+    padding: 0 12px;
+  }
+}
