@@ -1,6 +1,6 @@
 # TestTask Frontend 
 
-First two screen from Figma mockup. App is scalable, in a reason to add more pages need to add it to components folder. For test I leave component second slide un used in code.
+First two screen from Figma mockup. App is scalable, in a reason to add more pages need to add it to "@/components" folder. For test I leave component SeconSlide.tsx unused in code.
 
 ---
 
